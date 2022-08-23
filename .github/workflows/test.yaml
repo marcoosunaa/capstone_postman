@@ -1,13 +1,12 @@
-name: Newman
-on: [push]
+name: Newman Run
+on:
+  pull_request:
 jobs:
-    Newman:
-        name: API testing with Postman/Newman
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
-            with:
-              node-version: "14.x"
-          - run: npm install
-          - run: npm run api-test
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: fe35955b-ba03-4a76-8e02-254afe16a660/collection/581da243-86e8-4115-94e7-de5566f73360.json
+          environment: fe35955b-ba03-4a76-8e02-254afe16a660/environment/9dbf9e2c-c1f8-4744-a0ce-522ef4e951dc.json
