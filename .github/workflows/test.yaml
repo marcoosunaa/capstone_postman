@@ -1,6 +1,5 @@
 name: Newman Run
-on:
-  pull_request:
+on: [push]
 jobs:
   newman:
     runs-on: ubuntu-latest
